@@ -1,0 +1,16 @@
+### VS Code extension: "REST Client" (humao.rest-client)
+### Click "Send Request" above each block
+
+### 1. List tasks
+GET http://localhost:3000/tasks
+
+### 2. Create a new task
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+  "title": "Record the workflow video"
+}
+
+### 3. Complete task 2
+PATCH http://localhost:3000/tasks/2/complete

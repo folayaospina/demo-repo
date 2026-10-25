@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: demo_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev123
+      POSTGRES_DB: tasks_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

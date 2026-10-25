@@ -1,0 +1,13 @@
+{
+  "name": "tasks-api-demo",
+  "version": "1.0.0",
+  "description": "Simple tasks API used to demonstrate a developer workflow on an existing project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
