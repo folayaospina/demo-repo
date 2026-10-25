@@ -14,3 +14,8 @@ Content-Type: application/json
 
 ### 3. Complete task 2
 PATCH http://localhost:3000/tasks/2/complete
+
+
+### 4. List only the pending tasks
+
+GET http://localhost:3000/tasks/pending

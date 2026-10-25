@@ -6,7 +6,7 @@ app.use(express.json());
 
 const pool = new Pool({
   host: 'localhost',
-  port: 5432,
+  port: 5445,
   user: 'dev',
   password: 'dev123',
   database: 'tasks_db',
@@ -38,5 +38,13 @@ app.patch('/tasks/:id/complete', async (req, res) => {
   if (rows.length === 0) return res.status(404).json({ error: 'Task not found' });
   res.json(rows[0]);
 });
+
+//List only the pending tasks 
+app.get('/tasks/pending', async (req, res) =>{
+  const {rows} = await pool.query(
+    'SELECT * FROM tasks WHERE completed = FALSE ORDER BY id'
+  )
+  res.json(rows)
+})
 
 app.listen(3000, () => console.log('API ready at http://localhost:3000'));
